@@ -16,8 +16,9 @@ def all_odd(numbers):
         >>> all_odd([2, -6, 8])
         []
     """
+    odd_numbers = [num for num in numbers if num % 2 != 0]
 
-    return ['the wrong thing']
+    return odd_numbers
 
 
 def print_indices(items):
@@ -38,8 +39,8 @@ def print_indices(items):
         1 Jeep
         2 Volvo
     """
-
-    print "Nothing at all"
+    for index, item in enumerate(items):
+        print index, item
 
 
 def foods_in_common(foods1, foods2):
@@ -69,8 +70,13 @@ def foods_in_common(foods1, foods2):
         []
 
     """
+    foods1_set = set(foods1)
+    foods2_set = set(foods2)
+    foods_in_common = foods1_set & foods2_set
 
-    return ['the wrong thing']
+    foods_in_common_list = list(foods_in_common)
+
+    return foods_in_common_list
 
 
 def every_other_item(items):
@@ -86,8 +92,9 @@ def every_other_item(items):
        ... )
        ['you', 'are', 'good', 'at', 'code']
     """
+    every_other = [item for item in items[::2]]
 
-    return ['the wrong thing']
+    return every_other
 
 
 def largest_n_items(items, n):
@@ -112,7 +119,13 @@ def largest_n_items(items, n):
         [3, 3]
     """
 
-    return []
+    sorted_items = sorted(items)
+    if n == 0:
+        largest_n = []
+    else:
+        largest_n = [item for item in sorted_items[-n::1]]
+
+    return largest_n
 
 
 #####################################################################
